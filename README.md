@@ -1,5 +1,6 @@
 # Arduino-AD8801
-Arduino library to control Analog Device's 8801 Octal DAC via SPI/serial communication
+Arduino library to control Analog Device's 8801 Octal 8-bit DAC via 3-wire SPI/serial communication.
 
 ## Datasheet
-https://www.analog.com/en/products/ad8801.html
+https://www.analog.com/media/en/technical-documentation/dzata-sheets/AD8801_8803.pdf
+

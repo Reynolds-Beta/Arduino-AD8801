@@ -1,0 +1,27 @@
+#######################################
+# Syntax Coloring Map AAD8801
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+AD8801              KEYWORD1
+PowerStates         KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin               KEYWORD2
+getPowerState       KEYWORD2
+resume              KEYWORD2
+reset               KEYWORD2
+set                 KEYWORD2
+shutdown            KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+AD8801_DAC_COUNT    LITERAL1
