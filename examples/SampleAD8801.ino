@@ -22,18 +22,26 @@
  *      Digital pin 12 (MISO pin)  [Not necessary]
  *      Digital pin 13 (SCK pin)   [AD8801 pin 9    (CLK)]
  *
- *  Optional controls:
+ *  Optional controls, depending on circuitry:
  *      Digital pin 5              [AD8801 pin 15   (RS)]
  *      Digital pin 6              [AD8801 pin 6    (SHDN)]
  */
 
 #include "AD8801.h"
 
+// Define the optional digital outputs to control the AD8801 RS and Shutdown (SHDN) features
+// Please read the datasheet which fully describes the AD8801 device, and the requirements
+// necessary to ignore these controls. In short, both of these features are activated when
+// pulled LOW.
+//
+// For this sample, use the Uno digital pins 5 and 6 respectively.
 #define RS 5
 #define SHDN 6
 
+// Declare the AD8801 object
+// If optional controls are unnecessary, use:
+// AD8801 dac();
 AD8801 dac(RS, SHDN);
-// If optional controls are unnecessary, use AD8801::AD8801() constructor
 
 void setup()
 {
@@ -44,11 +52,27 @@ void setup()
     }
 
     Serial.println("Connection established");
+
+    // Initialize the declared AD8801
+    // This sets the control pins to OUTPUT using pinMode() if applicable
     dac.begin();
 }
 
 void loop()
 {
+    // This loop just reads from the serial port to gain
+    // some control over the device. This is hard-coded 
+    // to set only the device's first output (0)
+    // 
+    // Check the effect by connecting a voltmeter
+    // between pin 2 of the AD8801 and ground
+    //
+    // Commands are as follows:
+    //  reset:      Resets all AD8801 outputs to mid-point
+    //  shutdown:   Places the AD8801 into a shutdown power state
+    //  resume:     Places the AD8801 into a normal power state
+    //  0 - 255:    Changes the value of AD8801 output 0 to a value
+
     int bytesAvailable = Serial.available();
     if (bytesAvailable > 0)
     {
