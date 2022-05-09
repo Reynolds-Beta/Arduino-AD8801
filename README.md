@@ -6,7 +6,7 @@ https://www.analog.com/media/en/technical-documentation/data-sheets/AD8801_8803.
 
 ## Example breadboard wiring for example
 Below is the writing diagram used to test /examples/SampleAD8801.ino.</br></br>
-* vRef and Vdd (pins 1 and 16, respectively on the AD8801) are tied to the Ardiono Uno's regulated 5v output.
+* Vref and Vdd (pins 1 and 16, respectively on the AD8801) are tied to the Ardiono Uno's regulated 5v output.
 * The sample code only references the first output (pin 2 on the AD8801), which is probed with a DC multimieter to watch the changes
 * Output should be between 0 - 5v depending on the DAC value
 </br></br>
